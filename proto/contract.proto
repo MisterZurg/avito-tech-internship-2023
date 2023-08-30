@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package v1;
+
+option go_package = "avito-tech-internship-2023/internal/api/v1;pb";
+
+import "google/api/annotations.proto";
+
+service SegmentsService {
+  rpc CreateSegment(CreateSegmentRequest) returns (CreateSegmentResponse) {
+    option (google.api.http) = {
+      post: "/v1/example/createSegment"
+      body: "*"
+    };
+  }
+  rpc DeleteSegment(DeleteSegmentRequest) returns (DeleteSegmentResponse) {
+    option (google.api.http) = {
+      delete: "/v1/example/deleteSegment/{slug}"
+    };
+  }
+}
+
+message CreateSegmentRequest {
+  string slug = 1; // Slug is a unique segment name that can be considered as an ID.
+}
+
+message CreateSegmentResponse {
+  string message = 1;
+}
+
+message DeleteSegmentRequest {
+  string slug = 1; // Slug is a unique segment name that can be considered as an ID.
+}
+
+message DeleteSegmentResponse {
+  string message = 1;
+}
+
+
+service UsersService {
+  rpc AddUserToSegment(AddUserToSegmentRequest) returns (AddUserToSegmentResponse) {
+    option (google.api.http) = {
+      post: "/v1/example/addUserToSegment"
+      body: "*"
+    };
+  }
+  rpc GetActiveSegments(GetActiveSegmentsRequest) returns (GetActiveSegmentsResponse) {
+    option (google.api.http) = {
+      get: "/v1/example/getActiveSegments/{user_id}"
+    };
+  }
+}
+
+message AddUserToSegmentRequest {
+  repeated string slugs_add = 1;
+  repeated string slugs_del = 2;
+  string user_id = 3;
+}
+
+message AddUserToSegmentResponse {
+  string message = 1;
+}
+
+message GetActiveSegmentsRequest {
+  string user_id = 1;
+}
+
+message GetActiveSegmentsResponse {
+  repeated string slugs = 1;
+}
