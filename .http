@@ -1,0 +1,32 @@
+# Метод создания сегмента.
+# Из ТЗ: AVITO_VOICE_MESSAGES, AVITO_PERFORMANCE_VAS, AVITO_DISCOUNT_30, AVITO_DISCOUNT_50
+POST /v1/example/createSegment HTTP/1.1
+Host: localhost:8090
+Content-Type: application/json
+Accept: */*
+
+{
+ 	"slug": "AVITO_DISCOUNT_502"
+}
+###
+
+# Метод удаления сегмента.
+DELETE /v1/example/deleteSegment/AVITO_DISCOUNT_502 HTTP/1.1
+Host: localhost:8090
+Content-Type: application/json
+Accept: */*
+
+{
+  "slug": "AVITO_DISCOUNT_502"
+}
+
+
+###
+
+# Метод добавления пользователя в сегмент.
+
+###
+
+# Метод удаления сегмента.
+
+
