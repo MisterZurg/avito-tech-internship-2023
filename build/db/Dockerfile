@@ -8,4 +8,4 @@ ENV POSTGRES_DB db
 
 EXPOSE 5432
 
-#ADD ../../../internal/db/postgres/postgres_init.sql /docker-entrypoint-initdb.d/
+ADD ../../internal/db/postgres/postgres_init.sql /docker-entrypoint-initdb.d/
