@@ -24,9 +24,34 @@ Accept: */*
 ###
 
 # Метод добавления пользователя в сегмент.
+## Принимает список slug (названий) сегментов которые нужно добавить пользователю,
+## список slug (названий) сегментов которые нужно удалить у пользователя,
+## id пользователя.
+POST /v1/example/addUserToSegment HTTP/1.1
+Host: localhost:8090
+Content-Type: application/json
+Accept: */*
+
+{
+  "slugsAdd": [
+    "I_WISH_TO",
+    "WORK_AT_AVITO"
+  ],
+  "slugsDel": [
+    "WITHOUT",
+    "AVITO_VOICE_MESSAGES"
+  ],
+  "userId": "10012"
+}
 
 ###
 
-# Метод удаления сегмента.
+# Метод получения активных сегментов пользователя.
+GET /v1/example/getActiveSegments/1006 HTTP/1.1
+Host: localhost:8090
+Content-Type: application/json
+Accept: */*
 
-
+{
+  "user_id": 1006
+}
