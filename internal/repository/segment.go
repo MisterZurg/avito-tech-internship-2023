@@ -14,7 +14,7 @@ type SegmentRepository struct {
 	pb.UnimplementedSegmentsServiceServer
 }
 
-// CreateSegment()  POST /v1/example/createSegment
+// CreateSegment() POST /v1/example/createSegment
 func (sr *SegmentRepository) CreateSegment(ctx context.Context, in *pb.CreateSegmentRequest) (*pb.CreateSegmentResponse, error) {
 	slug := in.Slug
 	if slug == "" {
@@ -42,7 +42,7 @@ func (sr *SegmentRepository) CreateSegment(ctx context.Context, in *pb.CreateSeg
 	return &pb.CreateSegmentResponse{Message: fmt.Sprintf(`Slug:"%s" was sucsesfully created`, slug)}, nil
 }
 
-// DELETE /v1/example/deleteSegment/{slug}
+// DeleteSegment() DELETE /v1/example/deleteSegment/{slug}
 func (sr *SegmentRepository) DeleteSegment(ctx context.Context, in *pb.DeleteSegmentRequest) (*pb.DeleteSegmentResponse, error) {
 	slug := in.Slug
 	if slug == "" {

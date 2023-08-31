@@ -31,8 +31,13 @@ func (ur *UserRepository) AddUserToSegment(ctx context.Context, in *pb.AddUserTo
 	// Adding user to segments
 	// Check if this segment already exist
 	for _, slug := range slugs_add {
+		var slugInDB string
+		err := ur.DB.QueryRowx("SELECT slug FROM segments WHERE slug=$1;", slug).Scan(&slugInDB)
 
-		_, err := ur.DB.Exec(
+		if err == sql.ErrNoRows {
+			return &pb.AddUserToSegmentResponse{}, status.Errorf(codes.NotFound, "Given slug: %s does not exist created insert slug", slug)
+		}
+		_, err = ur.DB.Exec(
 			`UPDATE users SET segments = array_append(segments, $1)
 					WHERE user_id=$2 AND
     					(

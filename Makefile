@@ -5,13 +5,6 @@ run:
  	docker-compose -f ./build/docker-compose.yml up
 
 
-#.PHONY: pgup
-#pgup:
-#	docker-compose rm -f && docker-compose build --no-cache && docker-compose up
-
-
-
-
 .PHONY: generate
 generate: generate-pb generate-gw generate-openapi
 

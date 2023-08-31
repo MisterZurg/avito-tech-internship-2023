@@ -6,7 +6,7 @@ Content-Type: application/json
 Accept: */*
 
 {
- 	"slug": "AVITO_DISCOUNT_502"
+ 	"slug": "I_WISH_TO_WORK_AT_AVITO"
 }
 ###
 
@@ -17,7 +17,7 @@ Content-Type: application/json
 Accept: */*
 
 {
-  "slug": "AVITO_DISCOUNT_502"
+  "slug": "AVITO_DISCOUNT_50"
 }
 
 
@@ -34,8 +34,7 @@ Accept: */*
 
 {
   "slugsAdd": [
-    "I_WISH_TO",
-    "WORK_AT_AVITO"
+    "I_WISH_TO_WORK_AT_AVITO"
   ],
   "slugsDel": [
     "WITHOUT",
